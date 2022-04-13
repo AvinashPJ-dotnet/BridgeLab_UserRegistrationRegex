@@ -44,7 +44,7 @@ public class UserRegistration {
                 case 5:
                     System.out.println("Enter Password");
                     String password = scanner.next();
-                    boolean isPassword = Pattern.matches("^(?=[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,20}$", password);
+                    boolean isPassword = Pattern.matches("^(?=[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[%^_#&$+=@]).{8,20}$", password);
                     if (isPassword) userDetails.setPassword(password);
                     else System.out.println("Please check Password");
                     break;
