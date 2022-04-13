@@ -9,7 +9,7 @@ public class UserRegistration {
         UserDetails userDetails = new UserDetails();
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("1. First Name\n2. Last Name\n3. Email\n4. Phone Number\n0. Exit");
+            System.out.println("1. First Name\n2. Last Name\n3. Email\n4. Phone Number\n5. Password\n0. Exit");
             System.out.println("Enter choice");
             choice = scanner.nextInt();
             switch (choice) {
@@ -36,10 +36,17 @@ public class UserRegistration {
                     break;
                 case 4:
                     System.out.println("Enter Phone number");
-                    String phoneNumber = scanner.next();
-                    boolean isPhoneNumber = Pattern.matches("^[1-9]+[0-9]+[0-9]{10}$", phoneNumber);
+                    Number phoneNumber = scanner.nextBigInteger();
+                    boolean isPhoneNumber = Pattern.matches("^[1-9]+[0-9]+[0-9]{10}$", phoneNumber.toString());
                     if (isPhoneNumber) userDetails.setPhoneNumber(phoneNumber);
                     else System.out.println("Please check PhoneNumber");
+                    break;
+                case 5:
+                    System.out.println("Enter Password");
+                    String password = scanner.next();
+                    boolean isPassword = Pattern.matches("^[1-9a-zA-Z]{8}$", password);
+                    if (isPassword) userDetails.setPassword(password);
+                    else System.out.println("Please check Password");
                     break;
                 case 0:
                     break;
